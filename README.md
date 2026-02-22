@@ -14,7 +14,7 @@ This folder contains small practice projects that I built while learning.
 
 🌐 Mini Web Handler Project
 
-Purpose
+## Purpose
 
 These mini projects are part of my learning journey. The goal was to:
 
