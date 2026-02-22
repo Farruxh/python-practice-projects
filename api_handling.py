@@ -1,0 +1,35 @@
+import requests
+
+def fetch_user():
+    url = "https://api.freeapi.app/api/v1/public/randomusers/user/random"
+    response = requests.get(url)
+    data = response.json()
+    if data["success"] and "data" in data:
+        user_data = data["data"]
+        username = user_data["login"]["username"]
+        country = user_data["location"]["country"]
+        return username, country
+    else:
+        raise Exception("Failed to fetch data")
+    
+def cat_fact():
+    url = "https://catfact.ninja/fact"
+    response = requests.get(url)
+    data = response.json()
+    if data["length"] and "fact" in data:
+        fact = data["fact"]
+        return fact
+    else:
+        raise Exception("Failed to fetch cat fact")
+
+def main():
+    try:
+        username, country = fetch_user()
+        print(f"Username : {username}, \nCountry : {country}")
+        fact = cat_fact()
+        print(f"Random Cat Fact: {fact}")
+    except Exception as e:
+        print(str(e))
+
+if __name__ == "__main__":
+    main()
